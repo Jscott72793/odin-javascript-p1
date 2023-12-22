@@ -64,3 +64,17 @@ img {
     width: 650px;
     justify-content: space-around;
 }
+
+.game-notes-container {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: 150px;
+}
+
+.game-notes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}

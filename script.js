@@ -23,6 +23,8 @@ playerScoreNumber.textContent = playerScore;
 const computerScoreNumber = document.querySelector('.computer-score-number');
 computerScoreNumber.textContent = compScore;
 
+const gameNotes = document.querySelector('.game-notes');
+
 
 // Function that plays through one round of ROCK, PAPER, SCISSORS.
 
@@ -31,68 +33,82 @@ const playRound = (computerSelection, playerSelection) => {
     if (playerSelection === 'ROCK' && computerSelection === 'SCISSORS'){
         playerScore++;
         playerScoreNumber.textContent = playerScore;
-        console.log(`${playerSelection} beats ${computerSelection}! You win this round!`);
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer score: ${compScore}`);
+
+        gameNotes.textContent = (`${playerSelection} beats ${computerSelection}! You win this round!`)
+
 
     } else if (playerSelection === 'ROCK' && computerSelection === 'PAPER'){
         compScore++
         computerScoreNumber.textContent = compScore;
-        console.log(`${computerSelection} beats ${playerSelection}! LOSER!!! `);
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer score: ${compScore}`);
+
+        gameNotes.textContent = (`${computerSelection} beats ${playerSelection}! LOSER!!! `)
 
     } else if (playerSelection === 'ROCK' && computerSelection === 'ROCK'){
-        console.log(`${playerSelection} and ${computerSelection} tie! No one wins! Repeat this round!`);
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer score: ${compScore}`); 
+
+        gameNotes.textContent = (`${playerSelection} and ${computerSelection} tie! No one wins! Repeat this round!`)
 
     
     } else if (playerSelection === 'PAPER' && computerSelection === 'ROCK'){
         winner = 'Player';
-        playerScore++
+        playerScore++;
         playerScoreNumber.textContent = playerScore;
-        console.log(`${playerSelection} beats ${computerSelection}! You win this round!`);
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer score: ${compScore}`);
+        gameNotes.textContent = (`${playerSelection} beats ${computerSelection}! You win this round!`)
+
     
     } else if (playerSelection === 'PAPER' && computerSelection === 'SCISSORS'){
         winner = 'Computer';
         compScore++;
         computerScoreNumber.textContent = compScore;
-        console.log(`${computerSelection} beats ${playerSelection}! LOSER!!! `);
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer score: ${compScore}`);
+
+        gameNotes.textContent = (`${computerSelection} beats ${playerSelection}! LOSER!!! `)
+
 
     } else if (playerSelection === 'PAPER' && computerSelection === 'PAPER'){
-        console.log(`${playerSelection} and ${computerSelection} tie! No one wins! Repeat this round!`);
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer score: ${compScore}`);
+
+        gameNotes.textContent = (`${playerSelection} and ${computerSelection} tie! No one wins! Repeat this round!`)
+
 
     } else if (playerSelection === 'SCISSORS' && computerSelection === 'PAPER'){
         playerScore++;
         playerScoreNumber.textContent = playerScore;
-        console.log(`${playerSelection} beats ${computerSelection}! You win this round!`);
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer score: ${compScore}`);
+
+        gameNotes.textContent = (`${playerSelection} beats ${computerSelection}! You win this round!`)
+
 
     } else if (playerSelection === 'SCISSORS' && computerSelection === 'ROCK'){
         compScore++;
         computerScoreNumber.textContent = compScore;
-        console.log(`${computerSelection} beats ${playerSelection}! LOSER!!! `);
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer score: ${compScore}`);
+
+        gameNotes.textContent = (`${computerSelection} beats ${playerSelection}! LOSER!!! `)
+
         
 
     } else if (playerSelection === 'SCISSORS' && computerSelection === 'SCISSORS'){
-        console.log(`${playerSelection} and ${computerSelection} tie! No one wins! Repeat this round!`);
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer score: ${compScore}`);
+
+        gameNotes.textContent = (`${playerSelection} and ${computerSelection} tie! No one wins! Repeat this round!`)
+
+    };
+
+    if (playerScore >= 5 || compScore >= 5){
+        playerScore = 0;
+        compScore = 0;
+        playerScoreNumber.textContent = playerScore;
+        computerScoreNumber.textContent = compScore;
+
+        if(playerScore > compScore){
+            gameNotes.textContent = 'Make a selection to start the game. First player to 5 wins!';
+            alert('You Win! Now Resetting Score!')
+        } else {
+            gameNotes.textContent = 'Make a selection to start the game. First player to 5 wins!';
+            alert('You lost! Sorry, please try again!')
+        };
     };
 };
 
 
 const selectionGroup = document.querySelector('.game-items');
+
+
 selectionGroup.addEventListener('click',(event)=> {
 
     let playerPick = '';
@@ -118,24 +134,3 @@ selectionGroup.addEventListener('click',(event)=> {
     };
 });
 
-
-const playGame = () => {
-
-    alert('Welcome to ROCK, PAPER, SCISSORS. TRY TO BEAT THE COMPUTER BEST 3 OUT OF 5!')
-
-    // while (Math.max(playerScore, compScore) < 3){
-    //     playRound();
-    // };
-
-    // if (playerScore < compScore){
-    //     alert(`You lost! Sorry, try again next time!`);
-    // } else {
-    //     alert(`Congrats! You win best 3 out of 5!`);
-    // };
-
-    // console.log('Game Concluded. Refresh to play again!')
-}
-
-
-// playGame();
-playRound();
