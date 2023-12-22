@@ -1,0 +1,66 @@
+* {
+    font-family: 'Noto Sans', 'sans-serif'; 
+}
+
+
+.container {
+    display: flex;
+    height: 75px;
+    width: auto;
+    justify-content: center;
+    margin: 15px;
+    font-size: large;
+}
+
+.header-container {
+    display: flex;
+    margin: 10px;
+    width: 500px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome-container {
+    display: flex;
+    justify-content: center;
+}
+
+.welcomeContainer-items {
+    display: flex;
+    width: 500px;
+    justify-content: center;
+}
+
+.score-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+    
+}
+
+.scores {
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: auto;
+    margin-top: 50px;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
+
+.game-items {
+    display: flex;
+    width: 650px;
+    justify-content: space-around;
+}
